@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Kateryna Antoniuk - Drawing</title>
+	<link rel="stylesheet" href="styles.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+	<link rel="shortcut icon" href="logo.png">
+	<link rel="apple-touch-icon" href="logo.png">
+</head>
+<body>
+	<header>
+		<nav>
+			<ul>
+				<li><a href="portfolio.html">About Me</a></li> 
+				<li><a href="photos.html">Photo Gallery</a></li>
+				<li><a href="writing.html">Writing</a></li>
+				<li><a href="drawing.html">Drawing</a></li>
+				<li><a href="guitar.html">Guitar</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<div class="drawing">
+			<img src="portfolio photos/d1.jpg" alt="1">
+			<img src="portfolio photos/d2.jpg" alt="2">
+			<img src="portfolio photos/d3.jpg" alt="3">
+			<img src="portfolio photos/d4.jpg" alt="4">
+			<img src="portfolio photos/d5.jpg" alt="5">
+			<img src="portfolio photos/d6.jpg" alt="6">
+			<img src="portfolio photos/d7.jpg" alt="7">
+			<img src="portfolio photos/d8.jpg" alt="8">
+			<img src="portfolio photos/d9.jpg" alt="9">
+			<img src="portfolio photos/d10.jpg" alt="10">
+			<img src="portfolio photos/d11.jpg" alt="11">
+			<img src="portfolio photos/d12.jpg" alt="12">
+			<img src="portfolio photos/d13.jpg" alt="13">
+			<img src="portfolio photos/d14.jpg" alt="14">
+		</div>
+	</main>
+	<div id="imageModal" class="modal">
+		<span class="close" onclick="closeModal()">&times;</span>
+		<img class="modal-content" id="fullScreenImage">
+		<span class="prev" onclick="prevImage()"><i class="fa-solid fa-arrow-left"></i></span>
+		<span class="next" onclick="nextImage()"><i class="fa-solid fa-arrow-right"></i></span>
+	</div>
+	</body>
+	<script>
+		const modal = document.getElementById("imageModal");
+		const fullScreenImage = document.getElementById("fullScreenImage");
+		const images = document.querySelectorAll(".drawing img");
+		let currentIndex = 0;
+		function openModal(index) {
+			currentIndex = index;
+			fullScreenImage.src = images[currentIndex].src;
+			modal.style.display = "flex";
+			document.body.classList.add('modal-open');
+			document.querySelector("main").classList.add('blur');
+			document.querySelector("header").classList.add('blur');
+		}
+		function closeModal() {
+			modal.style.display = "none";
+			document.body.classList.remove('modal-open');
+			document.querySelector("main").classList.remove('blur');
+			document.querySelector("header").classList.remove('blur');
+		}
+		function nextImage() {
+			currentIndex = (currentIndex + 1) % images.length;
+			fullScreenImage.src = images[currentIndex].src;
+		}
+		function prevImage() {
+			currentIndex = (currentIndex - 1 + images.length) % images.length;
+			fullScreenImage.src = images[currentIndex].src;
+		}
+		images.forEach((img, index) => {
+			img.onclick = () => openModal(index);
+		});
+		modal.onclick = function(event) {
+			if (event.target == modal) {
+				closeModal();
+			}
+		}
+		document.addEventListener("keydown",function(event){
+			if (event.key=="Escape") {
+				closeModal();
+			} else if (event.key=="ArrowRight") {
+				nextImage();
+			} else if (event.key=="ArrowLeft") {
+				prevImage();
+			}
+		});
+	</script>
+</body>
+</html>
