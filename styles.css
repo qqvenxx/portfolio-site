@@ -1,0 +1,298 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+header{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    padding: 0rem;
+    background: linear-gradient(30deg, #11110f, #4d0000, #641825);
+    animation: gradientAnimation 10s ease infinite;
+    background-size: 400% 300%;
+}
+
+nav {
+    width: 100%;
+    background-color: #f8f8f8;
+    padding: 0.5rem;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+    justify-content: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 1.125rem;
+    padding: 0.3125rem 0.625rem;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+    padding: 1rem 0;
+    gap: 1rem;
+}
+
+.about-me {
+    flex: 2.5;
+    text-align: justify;
+    font-size: 1.5rem;
+    color: white;
+    padding: 0rem;
+    text-indent: 3rem;
+}
+
+.minephoto {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0rem;
+    flex-wrap: wrap;
+}
+
+.minephoto img {
+    width: 100%;
+    max-width: 26rem;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+@keyframes gradientAnimation {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+@media (max-width: 600px){
+    :root{
+        font-size: 0.7rem    
+    }
+}
+@media (max-width: 750px) {
+    .main-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .minephoto {
+        justify-content: center;
+    }
+}
+.portphoto {
+    display: grid;
+    grid-template-columns: repeat(3, 5fr); 
+    max-width: 70rem;
+    gap: 0.5rem 0.5rem;
+    align-content: center;
+    margin: auto;
+}
+.portphoto img{
+    width: 100%;
+    height: auto;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 88%;
+}
+.modal-open{
+    overflow: hidden;
+}
+.close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 35px;
+    color: white;
+    cursor: pointer;
+}
+.blur {
+    filter: blur(5px);
+}
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+}
+.modal .prev, .modal .next {
+    position: absolute;
+    top: 50%;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    transform: translateY(-50%);
+    user-select: none; 
+    z-index: 10;
+}
+
+.modal .prev {
+    left: 10px;
+}
+
+.modal .next {
+    right: 10px;
+}
+
+.modal .prev:hover, .modal .next:hover {
+    color: #ccc; 
+}
+.hello{
+    font-size: 2rem;
+    text-align: center;
+}
+.CV{
+    width: 100%;
+    margin-top: 1rem;
+    text-align: center;
+}
+.CV a {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #4d0000;
+    border-radius: 5px;
+    font-weight: bold;
+    display: block; 
+}
+.drawing {
+    display: grid;
+    grid-template-columns: repeat(3, 5fr); 
+    max-width: 70rem;
+    gap: 0.5rem 0.5rem;
+    align-content: center;
+    margin: auto;
+}
+.drawing img{
+    width: 100%;
+    height: auto;
+}
+.videoguitar {
+    display: flex;
+    justify-content: center;
+    margin: auto; 
+    width: 100%; 
+}
+.videoguitar video {
+    max-width: 100%; 
+    width: 800px; 
+    height: auto; 
+    border-radius: 8px;
+}
+@media (max-width: 750px) {
+    .video-container video {
+        width: 90%; 
+    }
+}
+.guitar{
+    text-align: center;
+    font-size: 30px;
+    margin:auto;
+    color:white; 
+    text-shadow:rgba(60, 60, 60)
+}
+
+
+.writing-previews {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem auto;
+    max-width: 70rem;
+  }
+
+  .preview {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 5px;
+  }
+  .preview:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  }  
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  .modal-content2 {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+  }
+  .modal .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #fff;
+  }
+  .text-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    width: 100%;
+  }.text-section {
+    flex: 1;
+      max-height: 600px; 
+      overflow-y: auto; 
+  }
+  
+  .text-section h3 {
+    margin-bottom: 1rem;
+  }
+  
+  .text-section p {
+    text-align: justify;
+  }  
+  

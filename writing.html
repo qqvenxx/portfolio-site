@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Kateryna Antoniuk - Writing</title>
+	<link rel="stylesheet" href="styles.css">
+	<link rel="shortcut icon" href="logo.png">
+	<link rel="apple-touch-icon" href="logo.png">
+</head>
+<body>
+	<header>
+		<nav>
+			<ul>
+				<li><a href="portfolio.html">About Me</a></li> 
+				<li><a href="photos.html">Photo Gallery</a></li>
+				<li><a href="writing.html">Writing</a></li>
+				<li><a href="drawing.html">Drawing</a></li>
+				<li><a href="guitar.html">Guitar</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<div class="writing">
+			<div class="writing-previews">
+				<div class="preview" data-original="original1" data-translation="translation1">
+				  <h2>"I stood and listened to spring..." (short essay)</h2>
+				  <p>Spring is a warm and blossoming season. The earth is covered with hollyhocks, trees turn green, and the days grow longer and warmer. </p>
+				</div>
+				<div class="preview" data-original="original2" data-translation="translation2">
+				  <h2>Problems of teenagers in my view(essay)</h2>
+				  <p>I’d like to start with a statement that is entirely subjective, as it stems solely from my own thoughts: teenagers and their problems</p>
+				</div>
+				<div class="preview" data-original="original3" data-translation="translation3">
+				  <h2>Call (poem)</h2>
+				  <p>I write my thoughts in rhyme—<br>
+					Will they, burned, carve their way through time?</p>
+				</div>
+				<div class="preview" data-original="original4" data-translation="translation4">
+				<h2></h2>
+				<p></p>
+				</div>
+				<div class="preview" data-original="original5" data-translation="translation5">
+				<h2></h2>
+				<p></p>
+				</div>
+				<div class="preview" data-original="original6" data-translation="translation6">
+				<h2></h2>
+				<p></p>
+				</div>
+			  </div>
+			  <div class="modal" id="writing-modal">
+				<div class="modal-content2">
+				  <span class="close">&times;</span>
+				  <div class="text-container">
+					<div class="text-section original-text">
+					  <h3>Original Text</h3>
+					  <p id="original-content"></p>
+					</div>
+					<div class="text-section translation-text">
+					  <h3>Translated Text</h3>
+					  <p id="translation-content"></p>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			</main>
+			<script>
+			  document.addEventListener("DOMContentLoaded", () => {
+			  const previews = document.querySelectorAll(".preview");
+			  const modal = document.getElementById("writing-modal");
+			  const closeModal = document.querySelector(".modal .close");
+			  const originalContent = document.getElementById("original-content");
+			  const translationContent = document.getElementById("translation-content");
+			  previews.forEach(preview => {
+				preview.addEventListener("click", () => {
+				  const originalText = preview.getAttribute("data-original");
+				  const translationText = preview.getAttribute("data-translation");
+				  originalContent.textContent = getTextById(originalText);
+				  translationContent.textContent = getTextById(translationText);
+				  modal.style.display = "flex";
+				});
+			  });
+			  closeModal.addEventListener("click", () => {
+				modal.style.display = "none";
+			  });
+			  function getTextById(id) {
+				const texts = {
+				original1:" Весна – тепла, квітуча пора. Земля вкривається мальвами, дерева зеленіють, дні стають довшими та теплішими. Сонце світить яскравіше, не обпалюючи, а легенько лоскочучи обличчя своїм промінням. Спів птахів долинає звідусіль: вони ніби вітають новий час у своєму житті, вітають весну. Ніжна мелодія – спів пташок – ніколи не була такою заспокійливою як зараз. Нагадує чи то вальс, чи симфонію. Навіть дощ не є крижаним чи пронизливим. Він також змінився: тепер він відчувається як затишок, сполучає твою особу з природою в одне ціле. Усе навколо набуває чарівності, притаманної лише цій порі – весні. Для кожного вона різна: до когось промовляє голосно, дзвінко, до когось таємно-тихо шепоче. Та нікого вона не залишить байдужим. Весна – те, про що співають мені мої мрії.",translation1: "Spring is a warm and blossoming season. The earth is covered with hollyhocks, trees turn green, and the days grow longer and warmer. The sun shines brighter, gently tickling the face with its rays rather than scorching it. Birds sing everywhere as if celebrating a new chapter in their lives, welcoming spring. Their delicate melody—birdsong—has never been as soothing as it is now. It resembles either a waltz or a symphony. Even the rain is no longer icy or piercing. It, too, has transformed; now, it feels cozy, connecting you with nature as if you are one with it. Everything around takes on a charm unique to this season—spring. For everyone, it is different: to some, it speaks loudly and brightly; to others, it whispers softly and secretly. Yet, it leaves no one indifferent. Spring is what my dreams sing about to me.",
+          		original2: "Розпочати хотілось би з твердження, котре є максимально суб’єктивним, адже випливає виключно з моїх власних думок: не можна ототожнювати підлітків та їх проблеми як окрему категорію людей. Деякі діти можуть мислити як підлітки, підлітки – як дорослі, а дорослі – як діти. Все залежить від освіченості людини, її характеру та обставин, які її оточують. Тобто, дехто може вважати якусь дрібну неприємну ситуацію як проблему величезного масштабу, у той час, як хтось інший навіть не зверне на неї уваги, фокусуючись на чомусь дійсно важливішому. Однак, говорячи саме про мене як представника юнацтва, можу виділити такі найактуальніші проблеми: По-перше, це, зрозуміло, війна. Я не вважаю доречним розписувати детально чому саме це мене турбує, адже це очевидно для всіх адекватних людей. Війна забирає життя, домівки та бажання жити. Вона є аморальною, безпринципною та абсолютно жахливою, тому на цей момент саме війна турбує мене найбільше. По-друге – навчання. Знаю, що не всі настільки турбуються за нього, думаючи, що «мені освіта не знадобиться, раз-два і влаштуюсь десь-кудись». Мене така невизначеність не влаштовує. Я хочу здобути вищу освіту, щоб завжди мати варіанти у своєму майбутньому. Я хочу пробивати собі шлях, прокладати його до своїх цілей та визначати сама хто я є, не дати суспільству зробити це за мене. Тому навчання з самого дитинства є невіднятною частиною розсудливого майбутнього, на мою суб’єктивну думку. Однак, постійне навчання призводить до погіршення зору та здоров’я в цілому. Також я маю незначну кількість особистого часу, що значно зменшує можливість соціалізації, особливо у час війни. Останнім, третім пунктом вважаю за потрібне виділити безперервний страх за майбутнє. Дивлячись на тенденції занепаду, у своїй більшості саме економічних сфер в Україні, я не можу не виражати занепокоєння щодо розвитку своєї держави. І не тільки держави: увесь світ є огорнутим політичним напруженням, що обов’язково матиме наслідки для усіх, однак ніхто не може точно передбачити які саме. Це може лякати сучасних підлітків, адже немає гарантій щодо саме такого розвитку майбутнього, яке ми можемо уявляти у своїх думках. Через це все більше і більше підлітків схиляються до думки, що краще жити одним днем, аніж планувати своє життя крок за кроком. Отже, всі підлітки є різними, і всіх турбують власні проблеми. Для мене найактуальнішими є не визначення свого майбутнього, майбутнього України та світу в цілому.",
+				translation2: "I’d like to start with a statement that is entirely subjective, as it stems solely from my own thoughts: teenagers and their problems cannot be generalized as a separate category of people. Some children can think like teenagers, teenagers can think like adults, and adults can think like children. It all depends on a person’s education, character, and the circumstances surrounding them. For instance, one person may perceive a minor unpleasant situation as a problem of enormous scale, while someone else might not even pay attention to it, focusing instead on something truly important. Speaking specifically about myself as a representative of youth, I can highlight the following as the most pressing issues: Firstly, there is, of course, the war. I don’t find it necessary to detail why this worries me, as it is evident to all reasonable people. War takes lives, homes, and the desire to live. It is immoral, unscrupulous, and utterly horrific, which is why war concerns me the most at this moment. Secondly—education. I know not everyone worries about it to the same degree, thinking, “I won’t need an education; I’ll just figure things out somehow.” Such uncertainty doesn’t suit me. I want to pursue higher education so that I always have options in my future. I want to pave my own path, work towards my goals, and define who I am on my own terms, not letting society do it for me. Therefore, education has been an integral part of a thoughtful future for me since childhood. However, constant studying takes a toll on my vision and overall health. Additionally, I have very little personal time, which significantly reduces my chances of socializing, especially during wartime. Finally, as the third point, I must highlight the relentless fear of the future. Observing the trends of decline, particularly in the economic sectors of Ukraine, I cannot help but express concern about my country’s development. And it’s not just about Ukraine; the entire world is engulfed in political tension, which will inevitably have consequences for everyone, although no one can predict exactly what those consequences will be. This can be frightening for modern teenagers, as there are no guarantees of the kind of future we imagine in our minds. Because of this, more and more teenagers lean towards the idea of living for today rather than planning their lives step by step. Thus, every teenager is different, and everyone has their own concerns. For me, the most relevant issues are the uncertainty of my future, the future of Ukraine, and the world as a whole.",
+          		original3: "z g",
+          		translation3: "This is the translated version of Text 3.",
+         		original4:"",
+          		translation4:"",
+         		original5:"",
+        		translation5:"",
+       			original6:"",
+       			translation6:"",
+        };
+        return texts[id] || "Content not found.";
+      }
+    });</script>
+	</body>
+	</html>
