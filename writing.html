@@ -73,6 +73,12 @@
 			  const closeModal = document.querySelector(".modal .close");
 			  const originalContent = document.getElementById("original-content");
 			  const translationContent = document.getElementById("translation-content");
+				 function formatText(text) {
+    				return text
+       				.split("\n\n")
+      				.map(paragraph => `<p>${paragraph.replace(/\n/g, "<br>")}</p>`)
+       				.join("");
+				 }
 			  previews.forEach(preview => {
 				preview.addEventListener("click", () => {
 				  const originalText = preview.getAttribute("data-original");
@@ -81,12 +87,6 @@
    				  translationContent.innerHTML = formatText(getTextById(translationText));
 				  modal.style.display = "flex";
 				});
-				function formatText(text) {
-    				return text
-       				.split("\n\n")
-      				.map(paragraph => `<p>${paragraph.replace(/\n/g, "<br>")}</p>`)
-       				.join("");
-}
 			  });
 			  closeModal.addEventListener("click", () => {
 				modal.style.display = "none";
@@ -96,7 +96,7 @@
 				original1:" Весна – тепла, квітуча пора. Земля вкривається мальвами, дерева зеленіють, дні стають довшими та теплішими. Сонце світить яскравіше, не обпалюючи, а легенько лоскочучи обличчя своїм промінням. Спів птахів долинає звідусіль: вони ніби вітають новий час у своєму житті, вітають весну. Ніжна мелодія – спів пташок – ніколи не була такою заспокійливою як зараз. Нагадує чи то вальс, чи симфонію. Навіть дощ не є крижаним чи пронизливим. Він також змінився: тепер він відчувається як затишок, сполучає твою особу з природою в одне ціле. Усе навколо набуває чарівності, притаманної лише цій порі – весні. Для кожного вона різна: до когось промовляє голосно, дзвінко, до когось таємно-тихо шепоче. Та нікого вона не залишить байдужим. Весна – те, про що співають мені мої мрії.",
 				translation1: "Spring is a warm and blossoming season. The earth is covered with hollyhocks, trees turn green, and the days grow longer and warmer. The sun shines brighter, gently tickling the face with its rays rather than scorching it. Birds sing everywhere as if celebrating a new chapter in their lives, welcoming spring. Their delicate melody—birdsong—has never been as soothing as it is now. It resembles either a waltz or a symphony. Even the rain is no longer icy or piercing. It, too, has transformed; now, it feels cozy, connecting you with nature as if you are one with it. Everything around takes on a charm unique to this season—spring. For everyone, it is different: to some, it speaks loudly and brightly; to others, it whispers softly and secretly. Yet, it leaves no one indifferent. Spring is what my dreams sing about to me.",
           			original2: "я пишу свої думки ,\n" +
-"римовано.,\n\n"+
+					"римовано.,\n\n"+
 "чи, спалені, викарбуються вони в моїй пам'яті?,\n" +
 "чи краще так: творити і палити.,\n\n" +
 "для чого взагалі писати? ,\n" +
@@ -105,7 +105,7 @@
 "ніхто нічого не казав, та душа моя сама те відчула ! ,\n\n" +
 "я прагну писати ! ,\n" +
 "пишу, бо хочу. пишу, бо не вмію!,\n\n" +
-"мені байдужі ваші думки про мою творчість, ,\n" +
+"мені байдужі ваші думки про мою творчість, \n" +
 "це - моє бачення ."
 				translation2: "I write my thoughts in rhyme—,\n" +
 		  "Will they, burned, carve their way through time?\n\n" +
