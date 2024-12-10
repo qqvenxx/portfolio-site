@@ -67,12 +67,6 @@
 			  </div>
 			</main>
 			<script>
-				function formatText(text) {
-   				return text
-       				.split("\n\n")
-      				.map(paragraph => `<p>${paragraph.replace(/\n/g, "<br>")}</p>`)
-      				.join("");
-}
 			  document.addEventListener("DOMContentLoaded", () => {
 			  const previews = document.querySelectorAll(".preview");
 			  const modal = document.getElementById("writing-modal");
@@ -83,10 +77,16 @@
 				preview.addEventListener("click", () => {
 				  const originalText = preview.getAttribute("data-original");
 				  const translationText = preview.getAttribute("data-translation");
-				  originalContent.textContent = getTextById(originalText);
-				  translationContent.textContent = getTextById(translationText);
+				  originalContent.innerHTML = formatText(getTextById(originalText));
+   				  translationContent.innerHTML = formatText(getTextById(translationText));
 				  modal.style.display = "flex";
 				});
+				function formatText(text) {
+    				return text
+       				.split("\n\n")
+      				.map(paragraph => `<p>${paragraph.replace(/\n/g, "<br>")}</p>`)
+       				.join("");
+}
 			  });
 			  closeModal.addEventListener("click", () => {
 				modal.style.display = "none";
