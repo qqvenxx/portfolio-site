@@ -114,6 +114,9 @@ nav ul li a {
     width: 100%;
     height: auto;
 }
+.portphoto img:hover {
+    cursor: pointer;
+}
 .modal {
     display: none;
     position: fixed;
@@ -126,7 +129,9 @@ nav ul li a {
     align-items: center;
     overflow: hidden;
 }
-
+.drawing img:hover {
+     cursor: pointer;
+}
 .modal-content {
     max-width: 90%;
     max-height: 88%;
