@@ -67,6 +67,12 @@
 			  </div>
 			</main>
 			<script>
+				function formatText(text) {
+   				return text
+       				.split("\n\n")
+      				.map(paragraph => `<p>${paragraph.replace(/\n/g, "<br>")}</p>`)
+      				.join("");
+}
 			  document.addEventListener("DOMContentLoaded", () => {
 			  const previews = document.querySelectorAll(".preview");
 			  const modal = document.getElementById("writing-modal");
